@@ -365,6 +365,18 @@ body {
 }
 .btn--ghost { background: transparent; }
 
+.btn--alarm {
+  background: linear-gradient(135deg, rgba(255,43,214,0.35), rgba(255,90,90,0.35));
+  border-color: rgba(255, 43, 214, 0.75);
+  box-shadow: var(--glow-mag);
+  animation: alarmPulse 0.9s ease-in-out infinite;
+}
+.btn--alarm:hover { border-color: var(--magenta); box-shadow: var(--glow-mag); }
+@keyframes alarmPulse {
+  0%, 100% { box-shadow: 0 0 14px rgba(255,43,214,0.55), 0 0 32px rgba(255,43,214,0.3); }
+  50%      { box-shadow: 0 0 24px rgba(255,90,90,0.8),  0 0 52px rgba(255,43,214,0.55); }
+}
+
 /* ---------- Time's up celebration ---------- */
 body.timesup .card {
   animation: celebrate 1.2s ease-in-out infinite;
