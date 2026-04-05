@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Counter Clock — Animated Countdown</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Ambient glowing orbs -->
+    <div class="orb orb--1" aria-hidden="true"></div>
+    <div class="orb orb--2" aria-hidden="true"></div>
+    <div class="orb orb--3" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+
+    <main class="stage">
+      <header class="headline">
+        <h1 class="title" data-text="COUNTER&nbsp;CLOCK">COUNTER&nbsp;CLOCK</h1>
+        <p class="subtitle" id="subtitle">Counting down to the moment…</p>
+      </header>
+
+      <section
+        class="countdown"
+        aria-live="polite"
+        aria-label="Time remaining"
+      >
+        <!-- DAYS -->
+        <div class="unit" data-unit="days">
+          <div class="icon icon--days" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <circle class="sun-core" cx="32" cy="32" r="10" />
+              <g class="sun-rays">
+                <line x1="32" y1="4"  x2="32" y2="14" />
+                <line x1="32" y1="50" x2="32" y2="60" />
+                <line x1="4"  y1="32" x2="14" y2="32" />
+                <line x1="50" y1="32" x2="60" y2="32" />
+                <line x1="12" y1="12" x2="19" y2="19" />
+                <line x1="45" y1="45" x2="52" y2="52" />
+                <line x1="52" y1="12" x2="45" y2="19" />
+                <line x1="19" y1="45" x2="12" y2="52" />
+              </g>
+            </svg>
+          </div>
+          <div class="card">
+            <span class="digits" id="days">00</span>
+            <span class="card-shine" aria-hidden="true"></span>
+          </div>
+          <div class="label">Days</div>
+        </div>
+
+        <!-- HOURS -->
+        <div class="unit" data-unit="hours">
+          <div class="icon icon--hours" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <g class="hourglass">
+                <path d="M16 8 H48 L34 28 Q32 30 34 32 L48 52 H16 L30 32 Q32 30 30 28 Z" />
+                <rect x="14" y="6" width="36" height="4" rx="1.5" />
+                <rect x="14" y="54" width="36" height="4" rx="1.5" />
+                <circle class="sand" cx="32" cy="30" r="1.6" />
+                <circle class="sand sand--2" cx="32" cy="38" r="1.2" />
+              </g>
+            </svg>
+          </div>
+          <div class="card">
+            <span class="digits" id="hours">00</span>
+            <span class="card-shine" aria-hidden="true"></span>
+          </div>
+          <div class="label">Hours</div>
+        </div>
+
+        <!-- MINUTES -->
+        <div class="unit" data-unit="minutes">
+          <div class="icon icon--minutes" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <circle class="clock-face" cx="32" cy="32" r="24" />
+              <circle class="clock-center" cx="32" cy="32" r="2" />
+              <line class="clock-min" x1="32" y1="32" x2="32" y2="14" />
+              <line class="clock-hr"  x1="32" y1="32" x2="44" y2="32" />
+            </svg>
+          </div>
+          <div class="card">
+            <span class="digits" id="minutes">00</span>
+            <span class="card-shine" aria-hidden="true"></span>
+          </div>
+          <div class="label">Minutes</div>
+        </div>
+
+        <!-- SECONDS -->
+        <div class="unit" data-unit="seconds">
+          <div class="icon icon--seconds" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <circle class="sec-ring" cx="32" cy="32" r="24" />
+              <circle class="sec-dot" cx="32" cy="8" r="3" />
+            </svg>
+          </div>
+          <div class="card">
+            <span class="digits" id="seconds">00</span>
+            <span class="card-shine" aria-hidden="true"></span>
+          </div>
+          <div class="label">Seconds</div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Timer controls">
+        <label class="field">
+          <span>Target</span>
+          <input type="datetime-local" id="target-input" />
+        </label>
+        <button type="button" id="btn-start" class="btn btn--primary">Start</button>
+        <button type="button" id="btn-pause" class="btn">Pause</button>
+        <button type="button" id="btn-reset" class="btn btn--ghost">Reset</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
